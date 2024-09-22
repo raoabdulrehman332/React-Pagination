@@ -9,9 +9,7 @@ function CardContextProvider({children}){
 
     function addCardItem(item){
         const arr = cardItem
-        const itemIndex = cardItem.findIndex((data)=> data.id == item.id)
-        // console.log("arr==>",arr);
-        // console.log("itemIndex==>",itemIndex);       
+        const itemIndex = cardItem.findIndex((data)=> data.id == item.id)      
         if(itemIndex == -1){
             arr.push({...item , quantity:1})
         }else{
@@ -37,8 +35,20 @@ function CardContextProvider({children}){
        }
     }
 
+    function addquntity(item , type){
+        const arr = cardItem
+        const itemIndex = cardItem.findIndex((data)=> data.id == item.id)
+               
+        if(type == 'plus'){
+            arr[itemIndex].quantity++;
+        }else{
+            arr[itemIndex].quantity--;
+        }
+        setcardItem([...arr])
+    }
+
    return <CardContext.Provider 
-   value={{cardItem ,isItem ,removItem,addCardItem}}>
+   value={{cardItem ,isItem ,removItem,addCardItem , addquntity}}>
         {children}
     </CardContext.Provider>
 }

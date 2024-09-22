@@ -1,5 +1,5 @@
 // import { Button  } from 'antd/es/radio'
-import { Button, Flex } from 'antd';
+import { Button, Flex, Image } from 'antd';
 import React, { useContext, useEffect, useState } from 'react'
 import { Spin } from "antd";
 import { Pagination } from "antd";
@@ -25,7 +25,7 @@ export default function Products() {
       fetch(`https://dummyjson.com/products?limit=${Limit}&skip=${Skip}`)
       .then(res => res.json())
       .then(data => {
-        console.log("res==>", data);
+        // console.log("res==>", data);
         setProduct(data.products)
         setTotal(data.total)
         setLoding(false)
@@ -43,17 +43,16 @@ export default function Products() {
 
     // console.log("product lenght", Limit);
     
-    
   return (
     <>
 
-        <div className='flex items-end justify-end  my-2 p-2 max-w-full'>
+        {/* <div className='flex items-end justify-end  my-2 p-2 max-w-full'>
           <Link to={'/cart'}>        
           <Badge count={cardItem.length}>
             <ShoppingCartOutlined style={{fontSize:40}} />
           </Badge>
           </Link>
-        </div>
+        </div> */}
     {
       loding 
       ? 
@@ -67,7 +66,7 @@ export default function Products() {
       <div className='grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1  my-10 '>
        {Product.map(data =>
           <div key={data.id} className='border shadow flex flex-col items-center m-2 rounded'>
-            <img width={200}  src={data.thumbnail} alt="img" /> 
+            <Image width={200} preview={false}  src={data.thumbnail} alt="img" /> 
             <div className='p-2 flex flex-col justify-between w-full'>
               <h1 className='font-semibold'>
               Title: {data.title}
@@ -78,12 +77,16 @@ export default function Products() {
             </div>   
             <div className='p-2 m-2 flex justify-evenly w-full'>
               <Link to={`/product/${data.id}`}>
-                <Button className='px-8' type="primary">Viev Card</Button>
+              <Button
+              className="flex ml-auto  font-semibold text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+              > 
+               Viwe Card
+               </Button>
               </Link>
-            <Button className='px-8 border-none outline-none' type="primary"
+            {/* <Button className='px-8 border-none outline-none' type="primary"
             onClick={()=> addCardItem(data) }> 
             {isItem(data.id) ? `Added ( ${isItem(data.id).quantity} ) ` : `Add to cart`} 
-            </Button>
+            </Button> */}
             </div>
 
           </div>
