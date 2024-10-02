@@ -3,7 +3,7 @@ import { Button, Flex, Image } from 'antd';
 import React, { useContext, useEffect, useState } from 'react'
 import { Spin } from "antd";
 import { Pagination } from "antd";
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { AntDesignOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { Badge } from "antd";
 import { Link } from 'react-router-dom';
 import { CardContext } from '../Context/CardContext';
@@ -31,6 +31,9 @@ export default function Products() {
         setLoding(false)
       } )
     },[Limit , Skip])
+
+    console.log('Product==> ', Product);
+    
 
 // <-----------Pagination on Scroll-------------->
     // useEffect(()=>{
@@ -65,28 +68,30 @@ export default function Products() {
    
       <div className='grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1  my-10 '>
        {Product.map(data =>
-          <div key={data.id} className='border shadow flex flex-col items-center m-2 rounded'>
+          <div key={data.id} className='border shadow flex flex-col items-center m-2 rounded hover:scale-105 hover:border-blue-300 transition-all'>
             <Image width={200} preview={false}  src={data.thumbnail} alt="img" /> 
             <div className='p-2 flex flex-col justify-between w-full'>
               <h1 className='font-semibold'>
               Title: {data.title}
               </h1>
+            <div className='w-full flex items-start'>
+            <span class="flex items-center"><svg fill="yellow" stroke="yellow" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><svg fill="yellow" stroke="yellow" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><svg fill="yellow" stroke="yellow" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><svg fill="yellow" stroke="yellow" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><svg fill="none" stroke="yellow" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><span class="text-gray-600 ml-3">{data.reviews[2].rating} Reviews</span></span>
+            </div>
               <h1 className='font-semibold'>
                 Price: ${data.price}
               </h1>
-            </div>   
+            </div>
+            
+
             <div className='p-2 m-2 flex justify-evenly w-full'>
               <Link to={`/product/${data.id}`}>
               <Button
-              className="flex ml-auto  font-semibold text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-              > 
+              className="flex ml-auto font-semibold text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded  from-inherit"
+              icon={<AntDesignOutlined />}> 
                Viwe Card
                </Button>
+              
               </Link>
-            {/* <Button className='px-8 border-none outline-none' type="primary"
-            onClick={()=> addCardItem(data) }> 
-            {isItem(data.id) ? `Added ( ${isItem(data.id).quantity} ) ` : `Add to cart`} 
-            </Button> */}
             </div>
 
           </div>

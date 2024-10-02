@@ -23,17 +23,17 @@ export default function Cart() {
     <>
     {
       isItem ? 
-      <div className='flex gap-5 w-full'>
-        <div className='flex-grow flex flex-col border p-4 justify-center items-center rounded'>
-          <h2 className='text-xl font-semibold'>Total Quantity</h2>
-          <h2 className='text-xl font-semibold'>{TotalQuantity}</h2>
+      <div className='flex gap-5 w-full '>
+        <div className='flex-grow flex flex-col border p-4 justify-center items-center rounded hover:scale-105 transition-all hover:border-blue-400 '>
+          <h2 className='text-xl font-semibold  text-blue-500'>Total Quantity</h2>
+          <h2 className='text-3xl font-semibold text-gray-500'>{TotalQuantity}</h2>
         </div>
-        <div className='flex-grow flex flex-col border p-4 justify-center items-center rounded'>
-          <h2 className='text-xl font-semibold'>Total Amount</h2>
-          <h2 className='text-xl font-semibold'>${Math.floor(TotalAmount)}</h2>
+        <div className='flex-grow flex flex-col border p-4 justify-center items-center rounded hover:scale-105 transition-all hover:border-blue-400'>
+          <h2 className='text-xl font-semibold text-blue-500'>Total Amount</h2>
+          <h2 className='text-3xl font-semibold '><span className=' font-bold text-green-500'>$</span> <span className='text-gray-500'>{Math.floor(TotalAmount)}</span></h2>
         </div>
-        <div className='cursor-pointer flex-grow flex flex-col border p-4 justify-center items-center rounded'>
-          <h2 className='text-xl font-semibold'>Check Out</h2>
+        <div className='cursor-pointer flex-grow flex flex-col border p-4 justify-center items-center rounded hover:scale-105 transition-all hover:border-blue-400'>
+          <h2 className='text-xl font-semibold  text-blue-500'>Check Out</h2>
         </div>
       </div>
       :
@@ -41,8 +41,10 @@ export default function Cart() {
     }
       {
         cardItem.map( data => 
-        <div className='flex gap-1 w-full h-50 border shadow my-2 items-center'>
+        <div className='flex gap-1 w-full h-50 border shadow my-4 items-center rounded py-3 hover:scale-105 hover:border-blue-300 transition-all'>
+          <div className='w-1/3 flex justify-center'>
           <Image preview={false} width={200} height={200} src={data.thumbnail}  /> 
+          </div>
           <div className='flex flex-col w-full justify-center my-2 gap-1'>
           <h2 className="text-sm title-font text-gray-500 ">
           {data.brand}
@@ -54,7 +56,7 @@ export default function Cart() {
           {data.title}
         </h1>
         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-          ${data.price}
+          <span className=' font-bold text-green-500'>$</span><span className='text-gray-500'>{data.price}</span> 
         </h1>
         <div className='w-full '>
           <div className=' flex gap-2  my-2 py-2'>
@@ -65,7 +67,7 @@ export default function Cart() {
             <PlusOutlined className='font-green-200' />
           </Button>
           <h1 className='text-xl font-semibold mx-2'>
-          {data.quantity}
+          <span className='text-gray-500'>{data.quantity}</span>
           </h1>
           <Button className='bg-red-500'
           disabled={data.quantity <= 1}

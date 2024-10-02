@@ -1,4 +1,4 @@
-import { Button, Image } from 'antd';
+import { Button, ConfigProvider, Image, Radio } from 'antd';
 import React, { useContext, useEffect, useState } from 'react'
 // import { Image } from "antd";
 import { useParams } from 'react-router'
@@ -181,14 +181,15 @@ export default function ProductDetail() {
         </div>
         <div className="flex">
           <span className="title-font font-medium text-2xl text-gray-900">
-            ${product.price}
+          <span className=' font-bold text-green-500'>$</span><span className='text-gray-500'>{product.price}</span>
           </span>
           <Button
           onClick={()=> addCardItem(product) }
           className="flex ml-auto font-semibold text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
           > 
-          {isItem(product.id) ? `Added ( ${isItem(product.id).quantity} ) ` : `Add to cart`}
+          {isItem(product.id) ? `Added ( ${isItem(product.id).quantity}  ) ` :  `Add to cart`}
           </Button>
+        
         </div>
       </div>
     </div>

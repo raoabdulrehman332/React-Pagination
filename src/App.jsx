@@ -5,6 +5,7 @@ import Header from './Compunents/Header'
 import Products from "./Pages/Products";
 import Cart from "./Pages/Cart";
 import ProductDetail from "./Pages/ProductDetail";
+import Footer from "./Compunents/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>
     </BrowserRouter>
+    <Footer />
     </>
   )
 }
