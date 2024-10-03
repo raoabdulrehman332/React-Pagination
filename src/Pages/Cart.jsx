@@ -30,7 +30,7 @@ export default function Cart() {
         </div>
         <div className='flex-grow flex flex-col border p-4 justify-center items-center rounded hover:scale-105 transition-all hover:border-blue-400'>
           <h2 className='text-xl font-semibold text-blue-500'>Total Amount</h2>
-          <h2 className='text-3xl font-semibold '><span className=' font-bold text-green-500'>$</span> <span className='text-gray-500'>{Math.floor(TotalAmount)}</span></h2>
+          <h2 className='text-3xl font-semibold '><span className=' font-bold text-green-500'>$</span> <span className='text-gray-500'>{Math.round(TotalAmount)}</span></h2>
         </div>
         <div className='cursor-pointer flex-grow flex flex-col border p-4 justify-center items-center rounded hover:scale-105 transition-all hover:border-blue-400'>
           <h2 className='text-xl font-semibold  text-blue-500'>Check Out</h2>

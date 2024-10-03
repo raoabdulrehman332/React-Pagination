@@ -65,8 +65,14 @@ export default function Products() {
           </div>
       </>
     :
-   
-      <div className='grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1  my-10 '>
+   <div className=''>
+    <div className='flex items-center justify-center my-10'> 
+    <h1 className='text-4xl font-bold inline'>
+      <span className='text-3xl text-purple-600'>Our</span> <span className='text-3xl'>Products</span>
+      <img className='w-14 inline' src='https://r2.community.samsung.com/t5/image/serverpage/image-id/2858216iF966CF430D380489/image-size/large?v=v2&amp;px=999' />
+    </h1>
+    </div>
+       <div className='grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1  my-10 '>
        {Product.map(data =>
           <div key={data.id} className='border shadow flex flex-col items-center m-2 rounded hover:scale-105 hover:border-blue-300 transition-all'>
             <Image width={200} preview={false}  src={data.thumbnail} alt="img" /> 
@@ -100,6 +106,8 @@ export default function Products() {
       }
      
       </div>
+   </div>  
+      
     }
    <div className='w-full flex  justify-center'>
      <Pagination defaultCurrent={1} total={Total} pageSize={Limit} onChange={(num)=>  {setskip((num - 1) * Limit) }}
