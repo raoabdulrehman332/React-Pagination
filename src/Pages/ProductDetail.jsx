@@ -1,6 +1,5 @@
 import { Button, ConfigProvider, Image, Radio } from 'antd';
 import React, { useContext, useEffect, useState } from 'react'
-// import { Image } from "antd";
 import { useParams } from 'react-router'
 import { CardContext } from '../Context/CardContext';
 

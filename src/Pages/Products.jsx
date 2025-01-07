@@ -1,4 +1,3 @@
-// import { Button  } from 'antd/es/radio'
 import { Button, Flex, Image } from 'antd';
 import React, { useContext, useEffect, useState } from 'react'
 import { Spin } from "antd";
@@ -92,8 +91,7 @@ export default function Products() {
             <div className='p-2 m-2 flex justify-evenly w-full'>
               <Link to={`/product/${data.id}`}>
               <Button
-              className="flex ml-auto font-semibold text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded  from-inherit"
-              icon={<AntDesignOutlined />}> 
+              className="flex ml-auto font-semibold text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded  from-inherit"> 
                Viwe Card
                </Button>
               
@@ -104,6 +102,7 @@ export default function Products() {
           
         )
       }
+
      
       </div>
    </div>  
